@@ -10,18 +10,25 @@
 
     <!-- Шапка -->
     <header>
-        <div class="logo">
-            <span class="logo-icon">💻</span>
-            <span>PC-Master</span>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Главная</a></li>
-                <li><a href="#about">О нас</a></li>
-                <li><a href="#services">Услуги</a></li>
-                <li><a href="#contacts">Контакты</a></li>
-            </ul>
-        </nav>
+    <div class="logo">
+        <span class="logo-icon">💻</span>
+        <span>PC-Master</span>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav id="main-nav">
+        <ul>
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+    </nav>
     </header>
 
     <!-- Главная -->
@@ -153,7 +160,7 @@
                     <p><strong>🕒 Режим работы:</strong> Ежедневно, 9:00 – 21:00</p>
                     <p class="contact-note">Вызов мастера на дом — бесплатный при заказе ремонта.</p>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" id="contact-form">
                     <h3>Оставить заявку</h3>
                     <input type="text" placeholder="Ваше имя" required>
                     <input type="tel" placeholder="Телефон" required>
@@ -171,6 +178,7 @@
                     <textarea rows="4" placeholder="Опишите проблему"></textarea>
                     <button type="submit">Отправить заявку</button>
                 </form>
+                <div id="form-success" class="form-success"></div>
             </div>
         </section>
 
@@ -183,34 +191,8 @@
         <p class="footer-small">Ремонт и обслуживание компьютеров в Бишкеке</p>
     </footer>
 
-    <script>
-        // Слайдер в hero
-        const heroSlides = document.querySelectorAll('.hero-bg-slide');
-        let heroCurrent = 0;
-        setInterval(() => {
-            heroSlides[heroCurrent].classList.remove('active');
-            heroCurrent = (heroCurrent + 1) % heroSlides.length;
-            heroSlides[heroCurrent].classList.add('active');
-        }, 6000);
-
-        // Плавный переход hero → rgb-pc по прокрутке
-        const hero = document.querySelector('.hero');
-        const heroRgb = document.querySelector('.hero-bg-rgb');
-
-        function updateHeroRgb() {
-            const heroH = hero.offsetHeight;
-            const scrolled = window.scrollY;
-            const start = heroH * 0.4;   // начать проявление
-            const end = heroH * 0.95;    // полностью проявилось
-            let progress = (scrolled - start) / (end - start);
-            progress = Math.max(0, Math.min(1, progress));
-            heroRgb.style.opacity = progress;
-        }
-
-        window.addEventListener('scroll', updateHeroRgb);
-        window.addEventListener('resize', updateHeroRgb);
-        updateHeroRgb();
-    </script>
+    <script src="script.js"></script>
+</body>
 
 </body>
 </html>
