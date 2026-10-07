@@ -1,0 +1,642 @@
+/* ==========================================
+   СБРОС
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   ОБЩИЕ
+   ========================================== */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #e2e8f0;
+    line-height: 1.6;
+    background-color: #050810;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ==========================================
+   ШАПКА
+   ========================================== */
+header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.logo-icon {
+    font-size: 1.3em;
+    filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.6));
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #06b6d4;
+    transition: width 0.3s;
+}
+
+nav a:hover {
+    color: #06b6d4;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================
+   HERO
+   ========================================== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    overflow: hidden;
+    color: #fff;
+    width: 100%;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-bg-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    z-index: 0;
+}
+
+.hero-bg-slide.active {
+    opacity: 1;
+}
+
+.hero-bg-rgb {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(10, 15, 30, 0.85), rgba(10, 15, 30, 0.7));
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+.hero-content h1 {
+    font-size: 3.2em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    max-width: 650px;
+    margin: 0 auto 35px;
+    color: #cbd5e1;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ==========================================
+   КНОПКИ
+   ========================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 15px 35px;
+    font-size: 1em;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.6);
+}
+
+.btn-outline {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: #0f172a;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================
+   ОБЁРТКА — ЕДИНЫЙ ФОН RGB
+   ========================================== */
+.content-wrapper {
+    position: relative;
+    padding: 20px 0 40px;
+    overflow: hidden;
+    background-color: #050810;
+}
+
+.wrapper-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.wrapper-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(10, 15, 30, 0.55), rgba(10, 15, 30, 0.75));
+    z-index: 1;
+}
+
+/* ==========================================
+   СЕКЦИИ ВНУТРИ ОБЁРТКИ
+   ========================================== */
+section:not(.hero):not(.advantages) {
+    padding: 70px 50px;
+    max-width: 1100px;
+    margin: 40px auto;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 20px;
+    border: 1px solid rgba(6, 182, 212, 0.25);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+section:not(.hero):not(.advantages) h2 {
+    font-size: 2.2em;
+    color: #fff;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+section:not(.hero):not(.advantages) h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #06b6d4, transparent);
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 40px;
+    font-size: 1.05em;
+}
+
+/* ==========================================
+   ПРЕИМУЩЕСТВА
+   ========================================== */
+.advantages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.9) 0%, rgba(23, 32, 51, 0.95) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 20px;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    margin-top: 60px !important;
+    margin-bottom: 40px;
+}
+
+.adv-item {
+    text-align: center;
+    padding: 20px 15px;
+    border-radius: 12px;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+}
+
+.adv-item:hover {
+    background-color: rgba(6, 182, 212, 0.05);
+    border-color: rgba(6, 182, 212, 0.2);
+    transform: translateY(-5px);
+}
+
+.adv-icon {
+    font-size: 2.5em;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.4));
+}
+
+.adv-item h3 {
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: 1.15em;
+}
+
+.adv-item p {
+    color: #94a3b8;
+    font-size: 0.9em;
+}
+
+/* ==========================================
+   О НАС
+   ========================================== */
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.about-text {
+    flex: 2;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    color: #cbd5e1;
+}
+
+.about-list {
+    list-style: none;
+    margin-top: 25px;
+}
+
+.about-list li {
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #e2e8f0;
+    background-color: rgba(6, 182, 212, 0.08);
+    border-left: 3px solid #06b6d4;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.about-list li:hover {
+    background-color: rgba(6, 182, 212, 0.15);
+    transform: translateX(5px);
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(6, 182, 212, 0.3);
+    transition: transform 0.3s;
+}
+
+.about-image img:hover {
+    transform: scale(1.03);
+}
+
+/* ==========================================
+   УСЛУГИ
+   ========================================== */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.service-card {
+    background: linear-gradient(145deg, #0f172a 0%, #1a2438 100%);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(6, 182, 212, 0.15);
+    border-top: 3px solid #06b6d4;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(6, 182, 212, 0.25);
+}
+
+.service-icon {
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.5));
+}
+
+.service-card h3 {
+    color: #fff;
+    margin-bottom: 12px;
+    font-size: 1.2em;
+}
+
+.service-card p {
+    color: #94a3b8;
+    flex: 1;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-weight: bold;
+    color: #06b6d4;
+    font-size: 1.15em;
+    padding-top: 15px;
+    border-top: 1px solid rgba(6, 182, 212, 0.15);
+}
+
+/* ==========================================
+   КОНТАКТЫ
+   ========================================== */
+.contact-wrapper {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.contact-info,
+.contact-form {
+    flex: 1 1 350px;
+    background-color: #0f172a;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(6, 182, 212, 0.15);
+    border-top: 3px solid #06b6d4;
+}
+
+.contact-info h3,
+.contact-form h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(6, 182, 212, 0.15);
+}
+
+.contact-info p {
+    margin-bottom: 14px;
+    color: #cbd5e1;
+    padding: 8px 0;
+}
+
+.contact-info strong {
+    color: #06b6d4;
+}
+
+.contact-note {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(6, 182, 212, 0.1);
+    border-left: 3px solid #06b6d4;
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: #67e8f9 !important;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 14px 15px;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 10px;
+    font-size: 1em;
+    font-family: inherit;
+    background-color: #0a0f1e;
+    color: #e2e8f0;
+    transition: all 0.3s;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #64748b;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #06b6d4;
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+}
+
+.contact-form select option {
+    background-color: #1e293b;
+    color: #e2e8f0;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.contact-form button {
+    padding: 15px;
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 5px;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+    letter-spacing: 0.5px;
+}
+
+.contact-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.6);
+}
+
+/* ==========================================
+   ПОДВАЛ
+   ========================================== */
+footer {
+    background-color: #050810;
+    color: #94a3b8;
+    text-align: center;
+    padding: 35px 20px;
+    border-top: 1px solid rgba(6, 182, 212, 0.15);
+}
+
+.footer-small {
+    font-size: 0.85em;
+    color: #64748b;
+    margin-top: 8px;
+}
+
+/* ==========================================
+   АДАПТИВ
+   ========================================== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hero-bg-slide,
+    .hero-bg-rgb,
+    .wrapper-bg {
+        background-attachment: scroll;
+    }
+
+    .advantages {
+        margin-top: 30px !important;
+        padding: 25px 15px;
+    }
+
+    section {
+        padding: 40px 20px;
+        margin: 20px 15px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Компьютерный мастер | Ремонт и настройка ПК</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="logo">
+            <span class="logo-icon">💻</span>
+            <span>PC-Master</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Главная -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="hero-bg-slide active" style="background-image: url('images/pc-setup.jpg');"></div>
+            <div class="hero-bg-slide" style="background-image: url('images/pc-setup-2.jpg');"></div>
+            <div class="hero-bg-rgb" style="background-image: url('images/rgb-pc.jpg');"></div>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Компьютерный мастер на дом</h1>
+            <p>Быстрый ремонт, установка ПО, настройка сети. Выезд в течение часа. Работаем 6 дней в неделю.</p>
+            <div class="hero-buttons">
+                <a href="#contacts" class="btn btn-primary">📞 Вызвать мастера</a>
+                <a href="#services" class="btn btn-outline">💰 Услуги и цены</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ОБЁРТКА: преимущества + о нас + услуги + контакты, единый фон rgb-pc -->
+    <div class="content-wrapper">
+        <div class="wrapper-bg" style="background-image: url('images/rgb-pc.jpg');"></div>
+        <div class="wrapper-overlay"></div>
+
+        <!-- Преимущества -->
+        <section class="advantages">
+            <div class="adv-item">
+                <div class="adv-icon">⚡</div>
+                <h3>Быстрый выезд</h3>
+                <p>Приедем в течение 60 минут</p>
+            </div>
+            <div class="adv-item">
+                <div class="adv-icon">💰</div>
+                <h3>Честные цены</h3>
+                <p>Стоимость известна заранее</p>
+            </div>
+            <div class="adv-item">
+                <div class="adv-icon">🛡️</div>
+                <h3>Гарантия</h3>
+                <p>До 12 месяцев на работы</p>
+            </div>
+            <div class="adv-item">
+                <div class="adv-icon">🔧</div>
+                <h3>Опыт 3+ лет</h3>
+                <p>Решаем задачи любой сложности</p>
+            </div>
+        </section>
+
+        <!-- О нас -->
+        <section id="about">
+            <h2>О нас</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Мы — команда профессиональных компьютерных мастеров с опытом работы более 3 лет.
+                        За это время мы починили тысячи компьютеров и ноутбуков, настроили сотни домашних сетей.
+                    </p>
+                    <p>
+                        Работаем честно: сначала называем точную цену, только потом приступаем к работе.
+                        Если ремонт нецелесообразен — честно об этом скажем.
+                    </p>
+                    <ul class="about-list">
+                        <li>✅ Диагностика — бесплатно</li>
+                        <li>✅ Выезд по городу — в течение часа</li>
+                        <li>✅ Гарантия на все виды работ</li>
+                        <li>✅ Работаем 6 дней с 9:00 до 21:00</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="images/pc-setup.jpg" alt="Компьютерный мастер за работой">
+                </div>
+            </div>
+        </section>
+
+        <!-- Услуги -->
+        <section id="services">
+            <h2>Наши услуги</h2>
+            <p class="section-subtitle">Цены указаны «от». Точная стоимость — после диагностики.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Ремонт компьютеров</h3>
+                    <p>Чистка от пыли, замена термопасты, замена комплектующих, ремонт материнской платы.</p>
+                    <span class="price">от 500 сом</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Ремонт ноутбуков</h3>
+                    <p>Замена экрана, клавиатуры, аккумулятора, ремонт после залития, чистка системы охлаждения.</p>
+                    <span class="price">от 700 сом</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Установка Windows</h3>
+                    <p>Установка Windows 10/11, драйверов, базового набора программ. Активация.</p>
+                    <span class="price">от 600 сом</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🦠</div>
+                    <h3>Удаление вирусов</h3>
+                    <p>Поиск и удаление вирусов, баннеров, майнеров. Настройка защиты.</p>
+                    <span class="price">от 400 сом</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Настройка сети и Wi-Fi</h3>
+                    <p>Настройка роутера, Wi-Fi, локальной сети. Устранение проблем с интернетом.</p>
+                    <span class="price">от 500 сом</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💾</div>
+                    <h3>Восстановление данных</h3>
+                    <p>Восстановление файлов с жёстких дисков, флешек, карт памяти.</p>
+                    <span class="price">от 800 сом</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contacts">
+            <h2>Контакты</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Свяжитесь с нами</h3>
+                    <p><strong>📞 Телефон:</strong> +996 (555) 123-456</p>
+                    <p><strong>📧 Email:</strong> master@pc-master.kg</p>
+                    <p><strong>📍 Адрес:</strong> г. Бишкек, пр. Чуй, 255</p>
+                    <p><strong>🕒 Режим работы:</strong> Ежедневно, 9:00 – 21:00</p>
+                    <p class="contact-note">Вызов мастера на дом — бесплатный при заказе ремонта.</p>
+                </div>
+                <form class="contact-form">
+                    <h3>Оставить заявку</h3>
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="tel" placeholder="Телефон" required>
+                    <input type="email" placeholder="Email (необязательно)">
+                    <select required>
+                        <option value="">Выберите услугу</option>
+                        <option>Ремонт компьютера</option>
+                        <option>Ремонт ноутбука</option>
+                        <option>Установка Windows</option>
+                        <option>Удаление вирусов</option>
+                        <option>Настройка сети</option>
+                        <option>Восстановление данных</option>
+                        <option>Другое</option>
+                    </select>
+                    <textarea rows="4" placeholder="Опишите проблему"></textarea>
+                    <button type="submit">Отправить заявку</button>
+                </form>
+            </div>
+        </section>
+
+    </div>
+    <!-- КОНЕЦ ОБЁРТКИ -->
+
+    <!-- Подвал -->
+    <footer>
+        <p>&copy; 2026 PC-Master. Все права защищены.</p>
+        <p class="footer-small">Ремонт и обслуживание компьютеров в Бишкеке</p>
+    </footer>
+
+    <script>
+        // Слайдер в hero
+        const heroSlides = document.querySelectorAll('.hero-bg-slide');
+        let heroCurrent = 0;
+        setInterval(() => {
+            heroSlides[heroCurrent].classList.remove('active');
+            heroCurrent = (heroCurrent + 1) % heroSlides.length;
+            heroSlides[heroCurrent].classList.add('active');
+        }, 6000);
+
+        // Плавный переход hero → rgb-pc по прокрутке
+        const hero = document.querySelector('.hero');
+        const heroRgb = document.querySelector('.hero-bg-rgb');
+
+        function updateHeroRgb() {
+            const heroH = hero.offsetHeight;
+            const scrolled = window.scrollY;
+            const start = heroH * 0.4;   // начать проявление
+            const end = heroH * 0.95;    // полностью проявилось
+            let progress = (scrolled - start) / (end - start);
+            progress = Math.max(0, Math.min(1, progress));
+            heroRgb.style.opacity = progress;
+        }
+
+        window.addEventListener('scroll', updateHeroRgb);
+        window.addEventListener('resize', updateHeroRgb);
+        updateHeroRgb();
+    </script>
+
+</body>
+</html>
