@@ -64,33 +64,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Собираем данные
         const data = {
-            name: form.querySelector('input[type="text"]').value.trim(),
-            phone: form.querySelector('input[type="tel"]').value.trim(),
-            email: form.querySelector('input[type="email"]').value.trim(),
-            service: form.querySelector('select').value,
-            message: form.querySelector('textarea').value.trim()
+            name: form.querySelector('input[name="name"]').value.trim(),
+            phone: form.querySelector('input[name="phone"]').value.trim(),
+            email: form.querySelector('input[name="email"]').value.trim(),
+            services: [],
+            message: form.querySelector('textarea[name="message"]').value.trim()
         };
 
-        // Простая валидация
-        if (!data.name || !data.phone || !data.service) {
-            alert('Пожалуйста, заполните имя, телефон и выберите услугу.');
+        // Собираем все выбранные услуги
+        form.querySelectorAll('input[name="services"]:checked').forEach(cb => {
+            data.services.push(cb.value);
+        });
+
+        // Валидация: имя, телефон и хотя бы одна услуга
+        if (!data.name) {
+            alert('Пожалуйста, укажите ваше имя.');
+            return;
+        }
+        if (!data.phone) {
+            alert('Пожалуйста, укажите номер телефона.');
+            return;
+        }
+        if (data.services.length === 0) {
+            alert('Пожалуйста, выберите хотя бы одну услугу.');
             return;
         }
 
-
+        // Здесь можно отправить данные на сервер через fetch():
+        // fetch('/api/send', { method: 'POST', body: JSON.stringify(data) })
+        // Но для учебной работы просто имитируем отправку:
         console.log('Отправлено:', data);
 
         // Показываем сообщение об успехе
+        const servicesText = data.services.join(', ');
         successMsg.style.display = 'block';
-        successMsg.textContent = '✅ Заявка отправлена! Мы свяжемся с вами в течение часа.';
+        successMsg.textContent = `✅ ${data.name}, спасибо! Ваша заявка принята. Услуги: ${servicesText}. Мы свяжемся с вами в течение часа.`;
 
         // Очищаем форму
         form.reset();
 
-        // Прячем сообщение через 5 секунд
+        // Прячем сообщение через 7 секунд
         setTimeout(() => {
             successMsg.style.display = 'none';
-        }, 5000);
+        }, 7000);
     });
 });
 

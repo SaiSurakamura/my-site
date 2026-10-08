@@ -762,3 +762,67 @@ footer {
         text-align: center;
     }
 }
+
+/* ==========================================
+   МНОЖЕСТВЕННЫЙ ВЫБОР УСЛУГ (чипсы)
+   ========================================== */
+.services-picker {
+    margin-top: 6px;
+}
+
+.services-picker-title {
+    font-size: 0.95em;
+    color: #94a3b8;
+    margin-bottom: 12px;
+}
+
+.services-picker-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.service-check {
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Скрываем настоящий чекбокс */
+.service-check input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Пилюля */
+.service-check span {
+    display: inline-block;
+    padding: 9px 16px;
+    border-radius: 50px;
+    font-size: 0.9em;
+    color: #cbd5e1;
+    background-color: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(6, 182, 212, 0.25);
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.service-check span:hover {
+    border-color: #06b6d4;
+    color: #06b6d4;
+}
+
+/* Выбранное состояние */
+.service-check input:checked + span {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.45);
+    transform: translateY(-1px);
+}
+
+/* Фокус с клавиатуры (для доступности) */
+.service-check input:focus-visible + span {
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.3);
+}

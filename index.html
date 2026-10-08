@@ -173,28 +173,52 @@
                 </div>
                 <form class="contact-form" id="contact-form">
                     <h3>Оставить заявку</h3>
-                    <input type="text" placeholder="Ваше имя" required>
-                    <input type="tel" placeholder="Телефон" required>
-                    <input type="email" placeholder="Email (необязательно)">
-                    <select required>
-                        <option value="">Выберите услугу</option>
-                        <option>Ремонт компьютера</option>
-                        <option>Обслуживание видеокарт</option>
-                        <option>Ремонт ноутбука</option>
-                        <option>Установка Windows</option>
-                        <option>Удаление вирусов</option>
-                        <option>Настройка сети</option>
-                        <option>Восстановление данных</option>
-                        <option>Другое</option>
-                    </select>
-                    <textarea rows="4" placeholder="Опишите проблему"></textarea>
-                    <button type="submit">Отправить заявку</button>
-                </form>
-                <div id="form-success" class="form-success"></div>
-            </div>
-        </section>
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                    <input type="tel" name="phone" placeholder="Телефон" required>
+                    <input type="email" name="email" placeholder="Email (необязательно)">
+<!-- Множественный выбор услуг -->
+                    <div class="services-picker">
+                        <p class="services-picker-title">Выберите услуги (можно несколько):</p>
+                        <div class="services-picker-grid">
+                        <label class="service-check">
+                            <input type="checkbox" name="services" value="Ремонт компьютера">
+                            <span>🔧 Ремонт компьютера</span>
+                        </label>
+                        <label class="service-check">
+                            <input type="checkbox" name="services" value="Ремонт ноутбука">
+                            <span>💻 Ремонт ноутбука</span>
+                        </label>
+                        <label class="service-check">
+                            <input type="checkbox" name="services" value="Обслуживание видеокарт">
+                            <span>🎮 Обслуживание видеокарт</span>
+                        </label>
+                        <label class="service-check">
+                            <input type="checkbox" name="services" value="Установка Windows">
+                            <span>⚙️ Установка Windows</span>
+                        </label>
+                        <label class="service-check">
+                            <input type="checkbox" name="services" value="Удаление вирусов">
+                            <span>🦠 Удаление вирусов</span>
+                        </label>
+                        <label class="service-check">
+                            <input type="checkbox" name="services" value="Настройка сети и Wi-Fi">
+                            <span>🌐 Настройка сети</span>
+                        </label>
+                        <label class="service-check">
+                            <input type="checkbox" name="services" value="Восстановление данных">
+                            <span>💾 Восстановление данных</span>
+                        </label>
+                        <label class="service-check">
+                            <input type="checkbox" name="services" value="Другое">
+                            <span>❓ Другое</span>
+                        </label>
+                        </div>
+                    </div>
 
-    </div>
+<textarea name="message" rows="4" placeholder="Опишите проблему"></textarea>
+<button type="submit">Отправить заявку</button>
+<p class="form-success" id="form-success"></p>
+
     <!-- КОНЕЦ ОБЁРТКИ -->
 
     <!-- Подвал -->
