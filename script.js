@@ -1,30 +1,52 @@
 /* ==========================================
-   1. МОБИЛЬНОЕ МЕНЮ (бургер)
+   1. МОБИЛЬНОЕ МЕНЮ
    ========================================== */
 document.addEventListener('DOMContentLoaded', () => {
     const burger = document.getElementById('burger');
     const nav = document.getElementById('main-nav');
-    const navLinks = nav.querySelectorAll('a');
+    const overlay = document.getElementById('navOverlay');
+    const links = nav.querySelectorAll('a');
 
-    // Открытие / закрытие по клику на бургер
+    function openMenu() {
+        burger.classList.add('active');
+        nav.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // блокируем прокрутку страницы
+    }
+
+    function closeMenu() {
+        burger.classList.remove('active');
+        nav.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Клик по бургеру
     burger.addEventListener('click', () => {
-        burger.classList.toggle('active');
-        nav.classList.toggle('open');
+        if (nav.classList.contains('open')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     });
 
-    // Закрывать меню при клике на любую ссылку
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            burger.classList.remove('active');
-            nav.classList.remove('open');
-        });
+    // Клик по любой ссылке — закрываем
+    links.forEach(link => {
+        link.addEventListener('click', closeMenu);
     });
 
-    // Закрытие при клике вне меню
-    document.addEventListener('click', (e) => {
-        if (!nav.contains(e.target) && !burger.contains(e.target)) {
-            burger.classList.remove('active');
-            nav.classList.remove('open');
+    // Клик по затемнению — закрываем
+    overlay.addEventListener('click', closeMenu);
+
+    // Escape закрывает меню
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+    });
+
+    // Если экран стал большим — сбрасываем состояние
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            closeMenu();
         }
     });
 });
